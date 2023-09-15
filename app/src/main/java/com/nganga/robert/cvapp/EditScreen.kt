@@ -63,7 +63,7 @@ fun EditScreenAppBar(
     modifier: Modifier = Modifier
 ){
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically
