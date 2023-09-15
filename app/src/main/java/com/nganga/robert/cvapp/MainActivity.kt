@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
             CVAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color(0xFFF0F2F3)
                 ) {
                     NavHost(
                         navController = navController,
@@ -39,7 +40,12 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(route = "editScreen"){
-                            EditScreen(detailsViewModel = viewModel)
+                            EditScreen(
+                                detailsViewModel = viewModel,
+                                onBackPressed = {
+                                    navController.popBackStack()
+                                }
+                            )
                         }
                     }
                 }
